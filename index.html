@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MySimoka SmartGrowth — Mass Anthropometry Measurement</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <span class="logo">MySimoka <span class="logo-highlight">SmartGrowth</span></span>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#problem">Problem</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#team">About</a></li>
+        <li><a href="https://play.google.com/store" target="_blank" rel="noopener" class="nav-cta">Get the App</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section id="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+
+    <div class="container hero-inner">
+      <div class="hero-text">        
+        <h1>Measure every child's growth,<br><span class="text-accent">without the paperwork</span></h1>
+        <p class="hero-desc">MySimoka SmartGrowth pairs a smart height &amp; weight scale with face recognition and an Android app, so schools can record anthropometry for hundreds of students in a single day — accurately, automatically, and all in one place.</p>
+        <div class="hero-actions">
+          <a href="https://play.google.com/store" target="_blank" rel="noopener" class="cta-btn">
+            Download on Google Play
+          </a>
+          <a href="#value" class="ghost-btn">See how it works</a>
+        </div>
+      </div>
+
+      <div class="hero-model reveal">
+        <div class="viewer-frame" id="viewerFrame">
+          <canvas id="modelCanvas"></canvas>
+          <div class="viewer-loading" id="viewerLoading">
+            <span class="viewer-spinner"></span>
+            <span>Loading device model…</span>
+          </div>
+          <div class="viewer-hint">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3-3 3 3M9 17l3 3 3-3M3 12h.01M21 12h.01"/></svg>
+            Drag to rotate &middot; Scroll to zoom
+          </div>
+          <div class="viewer-toolbar">
+            <button class="viewer-tool" id="toolMoveUp" title="Move up">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+            </button>
+            <button class="viewer-tool" id="toolMoveDown" title="Move down">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+            </button>
+            <button class="viewer-tool" id="toolReset" title="Reset position">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9"/><path d="M12 3v9h9"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="problem">
+    <div class="container">
+      <div class="section-label">The Challenge</div>
+      <h2 class="reveal">Anthropometry measurement<br>doesn't have to be hard</h2>
+      <div class="problem-grid">
+        <div class="problem-card reveal">
+          <div class="problem-icon"><i data-lucide="clock"></i></div>
+          <h3>Time Consuming</h3>
+          <p>Manual measurement of hundreds of students takes days or even weeks.</p>
+        </div>
+        <div class="problem-card reveal">
+          <div class="problem-icon"><i data-lucide="circle-x"></i></div>
+          <h3>Error Prone</h3>
+          <p>Handwritten records lead to data entry errors and lost information.</p>
+        </div>
+        <div class="problem-card reveal">
+          <div class="problem-icon"><i data-lucide="bar-chart-2"></i></div>
+          <h3>No Insights</h3>
+          <p>Without analytics, schools can't track growth trends or identify issues early.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="value">
+    <div class="container">
+      <div class="section-label">Our Solution</div>
+      <h2 class="reveal">One integrated system<br>for the whole school</h2>
+      <div class="value-content reveal">
+        <p>MySimoka SmartGrowth combines a smart measurement device, Android app, and cloud analytics to make anthropometry recording fast, accurate, and actionable. Identify students with face recognition, record automatically, and get instant reports — all in one seamless workflow.</p>
+      </div>
+      <div class="value-stats reveal">
+        <div class="stat"><span class="stat-num">3x</span><span class="stat-label">Faster than manual recording</span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-label">Device, app &amp; dashboard</span></div>
+        <div class="stat"><span class="stat-num">0</span><span class="stat-label">Paper forms required</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="container">
+      <div class="section-label">Features</div>
+      <h2 class="reveal">Everything you need<br>in one platform</h2>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon"><i data-lucide="smartphone"></i></div>
+          <h3>Android App</h3>
+          <p>Use the SmartGrowth app on any Android device for seamless data collection in the field.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"><i data-lucide="scan-face"></i></div>
+          <h3>Face Recognition</h3>
+          <p>Instantly identify students using facial recognition — no manual lookup or ID cards needed.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"><i data-lucide="zap"></i></div>
+          <h3>Automatic Recording</h3>
+          <p>Measurements are captured and synced automatically through the SmartGrowth device.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"><i data-lucide="bar-chart-3"></i></div>
+          <h3>Dashboard Analytics</h3>
+          <p>Comprehensive analytics dashboard for schools to monitor growth trends and identify concerns.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon"><i data-lucide="clipboard-list"></i></div>
+          <h3>Growth Reports</h3>
+          <p>Generate and share detailed growth reports for parents to track their child's development.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="detailed-features">
+    <div class="container">
+      <div class="section-label">In Detail</div>
+      <h2 class="reveal">See SmartGrowth in action</h2>
+      <div class="df-slider reveal" id="dfSlider">
+        <div class="df-track" id="dfTrack">
+          <div class="df-slide">
+            <div class="df-slide-img"><img src="assets/feature_1.png" alt="Face Recognition"></div>
+            <div class="df-slide-text">
+              <span class="df-slide-num">01</span>
+              <h3>Face Recognition</h3>
+              <p>Students are instantly identified using facial recognition — no manual lookup, no ID cards. Just step up and measure.</p>
+            </div>
+          </div>
+          <div class="df-slide">
+            <div class="df-slide-img"><img src="assets/feature_2.png" alt="Real-time Sync"></div>
+            <div class="df-slide-text">
+              <span class="df-slide-num">02</span>
+              <h3>Real-time Sync</h3>
+              <p>Measurements are captured and synced to the cloud instantly. No more lost paperwork or delayed data entry.</p>
+            </div>
+          </div>
+          <div class="df-slide">
+            <div class="df-slide-img"><img src="assets/feature_3.png" alt="Smart Dashboard"></div>
+            <div class="df-slide-text">
+              <span class="df-slide-num">03</span>
+              <h3>Smart Dashboard</h3>
+              <p>Monitor growth trends across your entire school. Identify at-risk students early with comprehensive analytics.</p>
+            </div>
+          </div>
+          <div class="df-slide">
+            <div class="df-slide-img"><img src="assets/feature_4.png" alt="Growth Reports"></div>
+            <div class="df-slide-text">
+              <span class="df-slide-num">04</span>
+              <h3>Growth Reports</h3>
+              <p>Generate and share detailed growth reports with parents. Track every child's development over time.</p>
+            </div>
+          </div>
+        </div>
+        <div class="df-controls">
+          <button class="df-arrow df-prev" id="dfPrev" aria-label="Previous">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="df-dots" id="dfDots"></div>
+          <button class="df-arrow df-next" id="dfNext" aria-label="Next">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="team">
+    <div class="container">
+      <div class="section-label">Team</div>
+      <h2 class="reveal">Built with passion by</h2>
+      <div class="team-grid">
+        <div class="team-card reveal">
+          <div class="team-avatar">MA</div>
+          <h3>Merita Arini</h3>
+          <span class="team-role">Doctor, Expert in Public Health</span>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-avatar">GP</div>
+          <h3>Gina Puspita</h3>
+          <span class="team-role">Pediatrician</span>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-avatar">FS</div>
+          <h3>Farid Suryanto</h3>
+          <span class="team-role">Product Designer</span>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-avatar">HY</div>
+          <h3>Herdian Yudha</h3>
+          <span class="team-role">Developer</span>
+        </div>
+        <div class="team-card reveal">
+          <div class="team-avatar">ZK</div>
+          <h3>Zulkarnen</h3>
+          <span class="team-role">DevOps Engineer</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-cta reveal">
+        <div class="footer-cta-inner">
+          <div class="footer-cta-visual">
+            <div class="footer-mockup">
+              <img src="assets/login_page.png" alt="MySimoka SmartGrowth App" class="footer-mockup-img">
+            </div>
+          </div>
+          <div class="footer-cta-content">
+            <h3>Ready to transform anthropometry at your school?</h3>
+            <a href="https://play.google.com/store" target="_blank" rel="noopener" class="cta-btn cta-btn--light">
+              Download on Google Play
+            </a>
+          </div>
+        </div>
+      </div>
+      <p class="copyright">&copy; 2026 MySimoka. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+// Navbar shadow on scroll
+const navbar = document.getElementById('navbar');
+const onScroll = () => {
+  navbar.classList.toggle('is-scrolled', window.scrollY > 8);
+};
+onScroll();
+window.addEventListener('scroll', onScroll, { passive: true });
+
+// Mobile nav toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('is-open');
+  navToggle.classList.toggle('is-open', isOpen);
+  navToggle.setAttribute('aria-expanded', String(isOpen));
+});
+navLinks.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('is-open');
+    navToggle.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
+// Reveal-on-scroll
+const revealEls = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+);
+revealEls.forEach((el) => revealObserver.observe(el));
+
+// Initialize Lucide icons
+lucide.createIcons();
+
+// Detail Features slider
+(function () {
+  const slider = document.getElementById('dfSlider');
+  if (!slider) return;
+  const track = document.getElementById('dfTrack');
+  const slides = track.querySelectorAll('.df-slide');
+  const dotsWrap = document.getElementById('dfDots');
+  const prevBtn = document.getElementById('dfPrev');
+  const nextBtn = document.getElementById('dfNext');
+  let current = 0;
+
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'df-dot' + (i === 0 ? ' is-active' : '');
+    dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+
+  function goTo(index) {
+    current = (index + slides.length) % slides.length;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dotsWrap.querySelectorAll('.df-dot').forEach((d, i) => {
+      d.classList.toggle('is-active', i === current);
+    });
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+})();
+
+</script>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
