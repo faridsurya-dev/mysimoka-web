@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Growth Reports: a child's growth report shared with parents">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0C1B3A"/><stop offset="1" stop-color="#071026"/></linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#2F63EB" stop-opacity="0.35"/><stop offset="1" stop-color="#2F63EB" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <circle cx="400" cy="300" r="300" fill="url(#glow)"/>
+
+  <!-- report sheet -->
+  <rect x="150" y="70" width="330" height="440" rx="20" fill="#F6F9FF"/>
+  <rect x="180" y="104" width="150" height="16" rx="8" fill="#0B1730"/>
+  <rect x="180" y="132" width="100" height="10" rx="5" fill="#8792A8"/>
+  <circle cx="420" cy="124" r="26" fill="#DCE8FF"/>
+  <circle cx="420" cy="116" r="9" fill="#4E7FF2"/>
+  <path d="M404 140c3-10 9-14 16-14s13 4 16 14z" fill="#4E7FF2"/>
+
+  <!-- growth curve: reference band + child's measurements over time -->
+  <rect x="180" y="170" width="270" height="190" rx="12" fill="#EAF1FF"/>
+  <g stroke="#B7CEFF" stroke-width="1.5"><line x1="200" y1="210" x2="430" y2="210"/><line x1="200" y1="250" x2="430" y2="250"/><line x1="200" y1="290" x2="430" y2="290"/><line x1="200" y1="330" x2="430" y2="330"/></g>
+  <path d="M200 320C260 300 310 260 430 200" fill="none" stroke="#B7CEFF" stroke-width="18" stroke-linecap="round" opacity=".7"/>
+  <path d="M200 322C250 306 300 272 340 252S410 214 430 206" fill="none" stroke="#2354E6" stroke-width="4" stroke-linecap="round"/>
+  <g fill="#2354E6"><circle cx="242" cy="309" r="6"/><circle cx="298" cy="276" r="6"/><circle cx="356" cy="244" r="6"/></g>
+  <circle cx="430" cy="206" r="7" fill="#6FE3C1" stroke="#2354E6" stroke-width="3"/>
+  <g fill="#55617A" opacity=".35"><rect x="180" y="384" width="270" height="10" rx="5"/><rect x="180" y="404" width="230" height="10" rx="5"/><rect x="180" y="424" width="250" height="10" rx="5"/></g>
+  <rect x="180" y="456" width="110" height="30" rx="15" fill="#2354E6"/>
+
+  <!-- share to parent -->
+  <g fill="none" stroke="#6FE3C1" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 12"><path d="M490 300C520 300 530 320 546 330"/></g>
+  <path d="M546 322l14 12-18 4z" fill="#6FE3C1"/>
+
+  <!-- parent's phone -->
+  <rect x="560" y="210" width="150" height="290" rx="24" fill="#0B1730" stroke="#4E7FF2" stroke-width="3"/>
+  <rect x="572" y="232" width="126" height="248" rx="14" fill="#12264F"/>
+  <rect x="586" y="252" width="98" height="64" rx="10" fill="#1A3FBD"/>
+  <path d="M596 304c16-6 30-18 44-26s24-14 34-18" fill="none" stroke="#6FE3C1" stroke-width="3" stroke-linecap="round"/>
+  <g fill="#B7CEFF" opacity=".55"><rect x="586" y="332" width="98" height="10" rx="5"/><rect x="586" y="352" width="70" height="10" rx="5"/></g>
+  <!-- parent -->
+  <circle cx="635" cy="410" r="16" fill="#B7CEFF"/>
+  <path d="M605 460c4-18 16-28 30-28s26 10 30 28z" fill="#B7CEFF"/>
+  <!-- notification -->
+  <g transform="translate(700 222)"><circle r="20" fill="#FFB86B"/><path d="M-8-3a8 8 0 0 1 16 0v6l3 4h-22l3-4z" fill="#0B1730"/><circle cy="10" r="3" fill="#0B1730"/></g>
+</svg>
