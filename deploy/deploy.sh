@@ -8,12 +8,24 @@
 # Meant to run from cron every few minutes, like SHD-Finance-Flow's deploy.sh.
 # With no new commit on origin/main it exits silently without touching anything.
 #
-# The GHCR package is public, so no `docker login` is needed. This script must
-# never run `docker login`/`logout`: the host's ghcr.io credentials belong to
-# SHD-Finance-Flow's auto-deploy.
+# The GHCR package is private. Its read token lives in a Docker config dir of
+# its own (deploy/.docker), NOT ~/.docker: that file holds one credential per
+# registry, and its ghcr.io slot belongs to SHD-Finance-Flow's auto-deploy.
+# Logging in there would silently replace SHD's token and break its deploys.
+#
+# One-time login (see DEPLOY.md):
+#   DOCKER_CONFIG=$PWD/.docker docker login ghcr.io -u <user> --password-stdin
 
 set -euo pipefail
 cd "$(dirname "$0")"
+
+export DOCKER_CONFIG="$PWD/.docker"
+mkdir -p "$DOCKER_CONFIG"
+chmod 700 "$DOCKER_CONFIG"
+# A per-user compose plugin lives in ~/.docker/cli-plugins; keep it reachable.
+if [ -d "$HOME/.docker/cli-plugins" ] && [ ! -e "$DOCKER_CONFIG/cli-plugins" ]; then
+  ln -s "$HOME/.docker/cli-plugins" "$DOCKER_CONFIG/cli-plugins"
+fi
 
 FORCE=0
 [ "${1:-}" = "--force" ] && FORCE=1
@@ -47,7 +59,11 @@ export IMAGE_TAG="$remote_sha"
 
 # Pull FIRST, merge later. If the pull fails with HEAD already moved, the next
 # cron run sees local == origin and never retries.
-if ! docker compose pull --quiet 2>/dev/null; then
+if ! pull_err="$(docker compose pull --quiet 2>&1)"; then
+  if grep -qiE 'denied|unauthorized' <<<"$pull_err"; then
+    log "FAILED: ghcr.io refused the pull; token in deploy/.docker missing or expired"
+    exit 1
+  fi
   log "image ${remote_sha:0:8} not in registry yet (CI still building?); will retry"
   exit 0
 fi

@@ -10,7 +10,7 @@ this server: CI builds the image and publishes it to GHCR; the server pulls it i
 |------|-------|
 | Host | `103.193.178.249`, user `rentalize` |
 | Repo clone | `/home/rentalize/mysimoka-web` (stack in `deploy/`, `.env` there) |
-| Image | `ghcr.io/faridsurya-dev/mysimoka-web:<commit sha>` (public package) |
+| Image | `ghcr.io/faridsurya-dev/mysimoka-web:<commit sha>` (private package) |
 | Container | `mysimoka-web` (compose project `mysimoka`), port `8080`, no host port |
 | Reverse proxy | `nginx` container on network `nginx_net`, owns 80/443 |
 | Vhost | `/home/rentalize/app/nginx/conf.d/mysimoka.id.conf` (source: `deploy/mysimoka.id.conf`) |
@@ -20,15 +20,19 @@ this server: CI builds the image and publishes it to GHCR; the server pulls it i
 nginx reaches the app by container name over `nginx_net`, resolved per request, so a deploy
 never needs an nginx reload.
 
-## 1. First image + make the package public
+## 1. Read token for GHCR
 
-Push to `main`. The `CI` workflow builds and publishes
-`ghcr.io/faridsurya-dev/mysimoka-web:<sha>` and `:main`.
+Push to `main`; the `CI` workflow publishes `ghcr.io/faridsurya-dev/mysimoka-web:<sha>` and
+`:main` as a private package.
 
-Then, once: GitHub → profile → Packages → `mysimoka-web` → Package settings →
-Change visibility → **Public**. The site is public anyway, and a public package means the server
-needs no `docker login`. Do **not** log in or out of `ghcr.io` on the server for this app: the
-stored `ghcr.io` credentials belong to SHD-Finance-Flow's auto-deploy.
+Create a **classic** PAT (GHCR does not accept fine-grained tokens): GitHub → Settings →
+Developer settings → Personal access tokens → Tokens (classic) → scope **`read:packages`**
+only, with an expiry you will track.
+
+The token must **not** go into `~/.docker/config.json`. That file keeps one credential per
+registry, and its `ghcr.io` slot belongs to SHD-Finance-Flow's auto-deploy; a `docker login
+ghcr.io` there silently replaces SHD's token and breaks its deploys. `deploy.sh` therefore
+uses its own config dir, `deploy/.docker` (git-ignored, mode 700).
 
 ## 2. Server setup (once)
 
@@ -37,8 +41,16 @@ cd /home/rentalize
 git clone https://github.com/faridsurya-dev/mysimoka-web.git
 cd mysimoka-web/deploy
 cp .env.example .env
+mkdir -m 700 .docker
+
+# paste the token when prompted, then Ctrl-D; it never lands in shell history
+DOCKER_CONFIG=$PWD/.docker docker login ghcr.io -u faridsurya-dev --password-stdin
+
 ./deploy.sh --force        # first run: the fresh clone is already at origin/main
 ```
+
+When the token expires, cron logs `ghcr.io refused the pull`; repeat the `docker login` line
+with a new token.
 
 Check:
 ```bash
@@ -124,6 +136,7 @@ Dry run: add `--dry-run` to the command above and run it once by hand.
 
 ```bash
 cd /home/rentalize/mysimoka-web/deploy
+export DOCKER_CONFIG=$PWD/.docker     # before any manual `docker compose pull`
 tail -f /home/rentalize/log/mysimoka-deploy.log
 docker compose ps
 docker compose logs -f
