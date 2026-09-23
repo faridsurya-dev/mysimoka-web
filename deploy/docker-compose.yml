@@ -1,0 +1,22 @@
+# Production stack for mysimoka.id on 103.193.178.249.
+#
+#   cd deploy && ./deploy.sh
+#
+# Explicit project name: the default would be the directory name `deploy`,
+# which is generic enough to collide with another stack on this shared server.
+name: mysimoka
+
+services:
+  web:
+    image: ${IMAGE:-ghcr.io/faridsurya-dev/mysimoka-web}:${IMAGE_TAG:-main}
+    container_name: mysimoka-web
+    restart: unless-stopped
+    # No published ports: the `nginx` container reaches this service as
+    # http://mysimoka-web:8080 over its network.
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
+    name: ${PROXY_NETWORK:-nginx_net}

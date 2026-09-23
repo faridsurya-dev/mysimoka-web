@@ -1,0 +1,12 @@
+.git
+.github
+.claude
+.gitignore
+*.md
+deploy/*
+!deploy/nginx.conf
+# stale root-level duplicates; the site uses css/, js/, models/
+/main.js
+/model-viewer.js
+/style.css
+/smart_growth.stl
