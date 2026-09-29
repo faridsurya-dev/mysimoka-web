@@ -63,7 +63,7 @@ function init() {
 
   const loader = new STLLoader();
   loader.load(
-    '../models/smart_growth.stl',
+    new URL('../models/smart_growth.stl', import.meta.url).href,
     (geometry) => onModelLoaded(geometry),
     undefined,
     () => showError('Could not load the 3D model file.')
@@ -99,13 +99,13 @@ function init() {
     scene.add(shadowMesh);
 
     const polarAngle = Math.PI / 2.35;
-    const camDist = radius * 3.1;
+    const camDist = radius * 4; // leave headroom so the full device fits on narrow frames
     camera.position.set(
       camDist * Math.sin(polarAngle) * Math.sin(0.6),
       size.y * 0.55 + camDist * Math.cos(polarAngle) * 0.55 + radius * 0.4,
       camDist * Math.sin(polarAngle) * Math.cos(0.6)
     );
-    const targetY = size.y * 0.42;
+    const targetY = size.y * 0.44;
     camera.lookAt(0, targetY, 0);
 
     controls = new OrbitControls(camera, renderer.domElement);
@@ -153,10 +153,19 @@ function init() {
   new ResizeObserver(resize).observe(frame);
   resize();
 
+  // Only render while the viewer is on screen, to save battery and CPU.
+  let visible = true;
+  let rafId = null;
   function animate() {
-    requestAnimationFrame(animate);
+    rafId = visible ? requestAnimationFrame(animate) : null;
     if (controls) controls.update();
     renderer.render(scene, camera);
+  }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible && rafId === null) animate();
+    }).observe(frame);
   }
   animate();
 }
