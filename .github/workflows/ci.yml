@@ -5,7 +5,7 @@ on:
     branches: [main]
   pull_request:
 
-# CI only builds and publishes the image. The server (103.193.178.249) pulls it
+# CI only builds and publishes the image. The server (43.163.117.147) pulls it
 # itself: deploy/deploy.sh runs from cron, the same way SHD-Finance-Flow does.
 # Nothing here holds credentials for the server.
 

@@ -8,14 +8,14 @@ this server: CI builds the image and publishes it to GHCR; the server pulls it i
 
 | What | Value |
 |------|-------|
-| Host | `103.193.178.249`, user `rentalize` |
-| Repo clone | `/home/rentalize/mysimoka-web` (stack in `deploy/`, `.env` there) |
+| Host | `43.163.117.147`, user `ubuntu` |
+| Repo clone | `/home/ubuntu/mysimoka-web` (stack in `deploy/`, `.env` there) |
 | Image | `ghcr.io/faridsurya-dev/mysimoka-web:<commit sha>` (private package) |
 | Container | `mysimoka-web` (compose project `mysimoka`), port `8080`, no host port |
 | Reverse proxy | `nginx` container on network `nginx_net`, owns 80/443 |
-| Vhost | `/home/rentalize/app/nginx/conf.d/mysimoka.id.conf` (source: `deploy/mysimoka.id.conf`) |
-| Certificates | `/home/rentalize/app/nginx/letsencrypt` → `/etc/letsencrypt` in `nginx` |
-| DNS | idwebhost: `mysimoka.id` A + wildcard `*` A → `103.193.178.249` |
+| Vhost | `/home/ubuntu/app/nginx/conf.d/mysimoka.id.conf` (source: `deploy/mysimoka.id.conf`) |
+| Certificates | `/home/ubuntu/app/nginx/letsencrypt` → `/etc/letsencrypt` in `nginx` |
+| DNS | idwebhost: `mysimoka.id` A + wildcard `*` A → `43.163.117.147` |
 
 nginx reaches the app by container name over `nginx_net`, resolved per request, so a deploy
 never needs an nginx reload.
@@ -37,7 +37,7 @@ uses its own config dir, `deploy/.docker` (git-ignored, mode 700).
 ## 2. Server setup (once)
 
 ```bash
-cd /home/rentalize
+cd /home/ubuntu
 git clone https://github.com/faridsurya-dev/mysimoka-web.git
 cd mysimoka-web/deploy
 cp .env.example .env
@@ -62,7 +62,7 @@ docker run --rm --network nginx_net busybox wget -qO- http://mysimoka-web:8080/h
 
 ```bash
 crontab -e
-*/2 * * * * /home/rentalize/mysimoka-web/deploy/deploy.sh >> /home/rentalize/log/mysimoka-deploy.log 2>&1
+*/2 * * * * /home/ubuntu/mysimoka-web/deploy/deploy.sh >> /home/ubuntu/log/mysimoka-deploy.log 2>&1
 ```
 
 `deploy.sh` exits silently when there is no new commit. On a new commit it pulls the image for
@@ -73,12 +73,12 @@ that exact SHA (retrying next run if CI has not pushed it yet), fast-forwards th
 
 Other domains here use certbot `standalone`, which stops nginx (every site) while it runs.
 `mysimoka.id` uses `webroot` instead: challenge files go into
-`/home/rentalize/app/nginx/letsencrypt/webroot`, which nginx already sees as
+`/home/ubuntu/app/nginx/letsencrypt/webroot`, which nginx already sees as
 `/etc/letsencrypt/webroot`. nginx refuses to load a vhost whose certificate is missing, so
 issue the certificate before enabling the 443 blocks.
 
 ```bash
-cd /home/rentalize/app/nginx
+cd /home/ubuntu/app/nginx
 mkdir -p letsencrypt/webroot
 
 # 4a) HTTP-only vhost that answers the ACME challenge
@@ -95,8 +95,8 @@ docker exec nginx nginx -t && docker exec nginx nginx -s reload
 
 # 4b) issue the certificate
 docker run --rm \
-  -v /home/rentalize/app/nginx/letsencrypt:/etc/letsencrypt \
-  -v /home/rentalize/log/letsencrypt:/var/log/letsencrypt \
+  -v /home/ubuntu/app/nginx/letsencrypt:/etc/letsencrypt \
+  -v /home/ubuntu/log/letsencrypt:/var/log/letsencrypt \
   certbot/certbot:latest certonly --webroot -w /etc/letsencrypt/webroot \
   --cert-name mysimoka.id -d mysimoka.id -d www.mysimoka.id \
   --email <admin-email> --agree-tos --no-eff-email
@@ -104,7 +104,7 @@ docker run --rm \
 
 4c) Replace the temporary vhost with the full one from the clone, then reload:
 ```bash
-cp /home/rentalize/mysimoka-web/deploy/mysimoka.id.conf /home/rentalize/app/nginx/conf.d/mysimoka.id.conf
+cp /home/ubuntu/mysimoka-web/deploy/mysimoka.id.conf /home/ubuntu/app/nginx/conf.d/mysimoka.id.conf
 docker exec nginx nginx -t && docker exec nginx nginx -s reload
 ```
 The vhost is copied, not symlinked: a later `git pull` must never change live nginx config
@@ -135,9 +135,9 @@ Dry run: add `--dry-run` to the command above and run it once by hand.
 ## Operations
 
 ```bash
-cd /home/rentalize/mysimoka-web/deploy
+cd /home/ubuntu/mysimoka-web/deploy
 export DOCKER_CONFIG=$PWD/.docker     # before any manual `docker compose pull`
-tail -f /home/rentalize/log/mysimoka-deploy.log
+tail -f /home/ubuntu/log/mysimoka-deploy.log
 docker compose ps
 docker compose logs -f
 ```
