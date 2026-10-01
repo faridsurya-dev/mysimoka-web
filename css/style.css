@@ -1031,3 +1031,23 @@ footer {
   .problem-card:hover, .feature-card:hover, .team-card:hover,
   .cta-btn:hover, .nav-cta:hover { transform: none; }
 }
+
+/* ============================================================
+   APK download (until the Google Play listing is live)
+============================================================ */
+.apk-note {
+  margin-top: 14px;
+  font-size: var(--fs-sm);
+  color: var(--on-dark-muted);
+}
+.install-steps {
+  margin-top: 18px;
+  padding-left: 1.25em;
+  display: grid;
+  gap: 6px;
+  max-width: 460px;
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--on-dark-muted);
+}
+.install-steps strong { color: var(--on-dark); font-weight: 600; }

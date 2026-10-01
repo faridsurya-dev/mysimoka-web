@@ -11,6 +11,10 @@ services:
     image: ${IMAGE:-ghcr.io/faridsurya-dev/mysimoka-web}:${IMAGE_TAG:-main}
     container_name: mysimoka-web
     restart: unless-stopped
+    # APK for the landing page's download button. Upload to deploy/downloads/
+    # on the server (see DEPLOY.md); it is not in git or the image.
+    volumes:
+      - ./downloads:/usr/share/nginx/html/download:ro
     # No published ports: the `nginx` container reaches this service as
     # http://mysimoka-web:8080 over its network.
     networks:

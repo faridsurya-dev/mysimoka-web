@@ -144,3 +144,17 @@ docker compose logs -f
 
 Rollback: set `IMAGE_TAG=<older sha>` in `deploy/.env`, then `docker compose pull && docker compose up -d`.
 The next new commit on `main` deploys normally again.
+
+## Android APK download
+
+The landing page links to `https://mysimoka.id/download/mysimoka.apk` until the
+Google Play listing is live. The file is served from `deploy/downloads/` on the
+server (bind-mounted read-only into the container), so it is neither in git nor
+in the image. Upload or replace it from a PC:
+
+```bash
+scp mysimoka-update-arm64.apk ubuntu@43.163.117.147:/home/ubuntu/mysimoka-web/deploy/downloads/mysimoka.apk
+```
+
+No redeploy is needed to replace the file. Update the version/size text in
+`index.html` (`.apk-note`) when shipping a new build.

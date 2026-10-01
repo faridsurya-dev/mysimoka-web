@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2">
+  <link rel="stylesheet" href="css/style.css?v=3">
 </head>
 <body>
 
@@ -39,6 +39,7 @@
       <symbol id="i-clipboard" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></symbol>
       <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
       <symbol id="i-play" viewBox="0 0 24 24"><path d="M6 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 6 3.5z"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12"/><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m7 10 5 5 5-5"/><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M5 21h14"/></symbol>
       <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></symbol>
     </defs>
   </svg>
@@ -58,7 +59,7 @@
         <li><a href="#problem">Problem</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#team">Team</a></li>
-        <li><a href="https://play.google.com/store" target="_blank" rel="noopener" class="nav-cta">Get the App</a></li>
+        <li><a href="/download/mysimoka.apk" download class="nav-cta">Download APK</a></li>
       </ul>
     </nav>
   </header>
@@ -74,15 +75,16 @@
         <h1 id="hero-title">Measure every child's growth, <span class="text-accent">without the paperwork</span></h1>
         <p class="hero-desc">MySimoka SmartGrowth pairs a smart height &amp; weight scale with face recognition and an Android app, so schools can record anthropometry for hundreds of students in a single day — accurately, automatically, and all in one place.</p>
         <div class="hero-actions">
-          <a href="https://play.google.com/store" target="_blank" rel="noopener" class="cta-btn">
-            <svg class="icon" aria-hidden="true"><use href="#i-play"/></svg>
-            Download on Google Play
+          <a href="/download/mysimoka.apk" download class="cta-btn">
+            <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+            Download for Android
           </a>
           <a href="#value" class="ghost-btn">
             See how it works
             <svg class="icon" aria-hidden="true"><use href="#i-arrow-down"/></svg>
           </a>
         </div>
+        <p class="apk-note">APK v1.0 &middot; Android 8.0+ &middot; 52 MB &middot; Google Play version coming soon</p>
         <ul class="hero-points">
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Face recognition</li>
           <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Automatic recording</li>
@@ -296,11 +298,17 @@
         <div class="footer-cta-content">
           <p class="section-label section-label--light">Get started</p>
           <h2 class="footer-title">Ready to transform anthropometry at your school?</h2>
-          <p class="footer-desc">Download the SmartGrowth app and start recording student growth quickly, easily, and at scale.</p>
-          <a href="https://play.google.com/store" target="_blank" rel="noopener" class="cta-btn cta-btn--light">
-            <svg class="icon" aria-hidden="true"><use href="#i-play"/></svg>
-            Download on Google Play
+          <p class="footer-desc">Download the SmartGrowth Android app and start recording student growth quickly, easily, and at scale.</p>
+          <a href="/download/mysimoka.apk" download class="cta-btn cta-btn--light">
+            <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+            Download for Android (APK)
           </a>
+          <p class="apk-note">APK v1.0 &middot; Android 8.0+ &middot; 52 MB. Google Play version coming soon.</p>
+          <ol class="install-steps">
+            <li>Download the APK on your Android phone.</li>
+            <li>Open it and allow <strong>Install unknown apps</strong> for your browser when asked.</li>
+            <li>Tap <strong>Install</strong>, then sign in with your school account.</li>
+          </ol>
         </div>
       </div>
       <div class="footer-bottom">
