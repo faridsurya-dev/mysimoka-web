@@ -1,0 +1,95 @@
+/* ============================================================
+   Standalone text pages (hapus-akun.html, kebijakan-privasi.html).
+   Loaded after css/style.css; reuses its tokens (--navy, --ink, ...).
+============================================================ */
+
+.doc-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.doc-header .nav-inner { height: var(--nav-h); }
+.doc-back {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--primary-600);
+  padding: 8px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.doc-back:hover { background: var(--tint-50); }
+
+.doc-main { padding: clamp(40px, 6vw, 72px) 0 clamp(56px, 8vw, 96px); }
+
+.doc {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.doc h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.875rem, 1.4rem + 2vw, 2.5rem);
+  line-height: 1.2;
+  color: var(--navy);
+  margin: 0 0 12px;
+}
+.doc h2 {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  line-height: 1.3;
+  color: var(--navy);
+  margin: 40px 0 12px;
+}
+.doc h3 {
+  font-size: var(--fs-h3);
+  color: var(--ink);
+  margin: 24px 0 8px;
+}
+.doc p, .doc li { color: var(--ink); }
+.doc ul, .doc ol { padding-left: 1.4em; margin: 0 0 16px; }
+.doc li { margin-bottom: 6px; }
+.doc a { color: var(--primary-600); text-decoration: underline; text-underline-offset: 2px; }
+.doc-meta { color: var(--ink-muted); font-size: var(--fs-sm); margin: 0 0 28px; }
+
+.doc-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: clamp(18px, 3vw, 28px);
+  margin: 20px 0;
+}
+.doc-card > :first-child { margin-top: 0; }
+.doc-card > :last-child { margin-bottom: 0; }
+
+/* Placeholder the site owner must fill before publishing. */
+.todo {
+  background: #FFF4CC;
+  color: #5C4400;
+  border: 1px dashed #C9A227;
+  border-radius: 6px;
+  padding: 1px 6px;
+  font-weight: 600;
+}
+
+.doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0 20px;
+  font-size: var(--fs-sm);
+}
+.doc th, .doc td {
+  text-align: left;
+  vertical-align: top;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.doc th { color: var(--navy); background: var(--tint-50); }
+.doc-table-wrap { overflow-x: auto; }
+
+.doc-footer {
+  background: var(--navy-950);
+  padding: 28px 0;
+}
+.doc-footer .footer-bottom { margin-top: 0; padding-top: 0; border-top: 0; }
+.doc-footer-links { display: flex; flex-wrap: wrap; gap: 16px; font-size: var(--fs-xs); }
+.doc-footer-links a { color: var(--on-dark-muted); }
+.doc-footer-links a:hover { color: #fff; }

@@ -64,9 +64,9 @@
 
     <h3>b. Data siswa yang dimasukkan sekolah</h3>
     <ul>
-      <li>Identitas: nama lengkap, nomor induk siswa, tanggal lahir, jenis kelamin, kelas, alamat, catatan, serta nama dan nomor telepon orang tua atau wali.</li>
-      <li>Hasil pengukuran: tinggi badan, berat badan, dan tanggal pengukuran. Indeks massa tubuh dan status gizi dihitung dari data ini.</li>
-      <li>Catatan imunisasi: jenis imunisasi, dosis, petugas, dan tanggal.</li>
+      <li>Identitas: nama lengkap, nomor induk siswa (NIS/NISN), tanggal lahir, jenis kelamin, kelas, alamat, catatan, serta nama dan nomor telepon orang tua atau wali.</li>
+      <li>Hasil pengukuran: tinggi badan, berat badan, tanggal pengukuran, serta nama dan ID alat ukur beserta data mentah dari alat bila alat Bluetooth dipakai. Indeks massa tubuh dan status gizi dihitung dari data ini.</li>
+      <li>Catatan imunisasi: jenis vaksin, dosis, nomor batch, lokasi suntikan, petugas, tanggal, dan catatan kejadian ikutan pasca-imunisasi (KIPI) bila ada.</li>
     </ul>
 
     <h3>c. Data wajah siswa</h3>
@@ -86,7 +86,7 @@
     <h3>e. Data yang tidak kami kumpulkan</h3>
     <ul>
       <li>Kami tidak mengumpulkan lokasi Anda.</li>
-      <li>Kami tidak memakai iklan, SDK analitik, atau pelacak pihak ketiga di aplikasi.</li>
+      <li>Kami tidak memakai iklan, SDK analitik, atau pelacak di aplikasi. Deteksi wajah di ponsel memakai Google ML Kit, yang berjalan di perangkat; library ini dapat mengirim data diagnostik penggunaan (bukan foto atau data siswa) ke Google sesuai <a href="https://developers.google.com/ml-kit/terms">ketentuan ML Kit</a>.</li>
       <li>Kami tidak membaca kontak, berkas, atau data lain di ponsel Anda.</li>
     </ul>
 
@@ -126,20 +126,21 @@
       <li>Data disimpan di server yang dikelola tim MySimoka. Seluruh komunikasi antara aplikasi dan server memakai koneksi terenkripsi (HTTPS).</li>
       <li>Akses data dibatasi per sekolah dan per peran, baik di server maupun di aplikasi.</li>
       <li>Di ponsel, aplikasi menyimpan token login dan pengaturan alat agar Anda tidak perlu masuk berulang kali. Data ini terhapus saat Anda keluar dari akun atau menghapus aplikasi.</li>
-      <li>Kami membuat cadangan basis data secara berkala untuk mencegah kehilangan data.</li>
+      <li>Kata sandi disimpan sebagai hash bcrypt. Token login berlaku 24 jam, dan token pembaruan berlaku 7 hari serta disimpan di server dalam bentuk hash.</li>
+      <li>Kami membuat cadangan basis data setiap hari untuk mencegah kehilangan data. Cadangan disimpan selama 14 hari.</li>
     </ul>
 
     <h2>7. Lama penyimpanan</h2>
     <ul>
       <li>Data disimpan selama sekolah masih memakai layanan MySimoka, atau sampai dihapus oleh sekolah.</li>
-      <li>Jika akun atau data dihapus atas permintaan, data tersebut dihapus dari basis data aktif. Salinan di cadangan ikut terhapus saat cadangan lama diganti.</li>
+      <li>Jika akun atau data dihapus atas permintaan, data tersebut dihapus dari basis data aktif. Salinan di cadangan harian ikut terhapus paling lama 14 hari kemudian.</li>
     </ul>
 
     <h2>8. Hak Anda</h2>
     <p>Anda dapat:</p>
     <ul>
       <li>Melihat dan memperbarui data akun Anda di menu Profil aplikasi.</li>
-      <li>Meminta penghapusan akun dan data terkait. Kirim permintaan dari email akun Anda ke <a href="mailto:info@mysimoka.id">info@mysimoka.id</a>.</li>
+      <li>Meminta penghapusan akun dan data terkait. Caranya dijelaskan di halaman <a href="/hapus-akun.html">Hapus Akun</a>.</li>
       <li>Orang tua atau wali siswa yang ingin melihat, memperbaiki, atau menghapus data anaknya dapat menghubungi sekolah. Sekolah dapat mengubah atau menghapus data siswa, atau meneruskan permintaan tersebut kepada kami, termasuk permintaan penghapusan data wajah.</li>
     </ul>
 
@@ -150,6 +151,6 @@
     <p>Pertanyaan atau permintaan terkait privasi dapat dikirim ke <a href="mailto:info@mysimoka.id">info@mysimoka.id</a>.</p>
   </main>
 
-  <footer>&copy; 2026 MySimoka &middot; <a href="/">Beranda</a></footer>
+  <footer>&copy; 2026 MySimoka &middot; <a href="/">Beranda</a> &middot; <a href="/hapus-akun.html">Hapus Akun</a></footer>
 </body>
 </html>
