@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kebijakan Privasi — MySimoka SmartGrowth</title>
+  <meta name="description" content="Kebijakan privasi aplikasi MySimoka SmartGrowth: data yang dikumpulkan, cara penggunaan, penyimpanan, dan hak pengguna.">
+  <meta name="theme-color" content="#17405C">
+  <link rel="canonical" href="https://mysimoka.id/kebijakan-privasi.html">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink: #17405C; --text: #1f2d3a; --muted: #5b6b7a; --line: #dde6ee; --bg: #f6f9fc; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Inter, system-ui, sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; }
+    header { background: #fff; border-bottom: 1px solid var(--line); }
+    .wrap { max-width: 780px; margin: 0 auto; padding: 0 16px; }
+    header .wrap { display: flex; align-items: center; gap: 10px; min-height: 64px; }
+    header a { display: flex; align-items: center; gap: 10px; color: var(--ink); font-family: Sora, sans-serif; font-weight: 700; text-decoration: none; }
+    main { background: #fff; margin: 24px auto 48px; border: 1px solid var(--line); border-radius: 16px; padding: 28px 24px 36px; }
+    h1 { font-family: Sora, sans-serif; color: var(--ink); font-size: 1.9rem; line-height: 1.25; margin: 0 0 6px; }
+    h2 { font-family: Sora, sans-serif; color: var(--ink); font-size: 1.2rem; margin: 32px 0 8px; }
+    h3 { font-size: 1rem; margin: 18px 0 4px; }
+    p, li { font-size: .98rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 4px 0; }
+    .meta { color: var(--muted); font-size: .9rem; margin: 0 0 20px; }
+    table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: .93rem; }
+    th, td { text-align: left; vertical-align: top; padding: 8px 10px; border: 1px solid var(--line); }
+    th { background: var(--bg); }
+    .table-scroll { overflow-x: auto; }
+    a { color: #1b6fa8; }
+    footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 0 16px 32px; }
+    @media (max-width: 600px) { main { margin: 16px 16px 32px; padding: 22px 16px 28px; } h1 { font-size: 1.5rem; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a href="/"><img src="assets/favicon.svg" alt="" width="28" height="28"> MySimoka SmartGrowth</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>Kebijakan Privasi</h1>
+    <p class="meta">Berlaku sejak 9 Oktober 2026</p>
+
+    <p>Kebijakan ini menjelaskan data apa saja yang dikumpulkan dan diproses oleh aplikasi Android <strong>MySimoka SmartGrowth</strong> beserta dashboard web-nya (admin.mysimoka.id), untuk apa data itu dipakai, bagaimana data disimpan, dan apa hak Anda. Dalam kebijakan ini, "kami" berarti tim pengelola MySimoka.</p>
+
+    <h2>1. Siapa pengguna aplikasi ini</h2>
+    <p>Aplikasi ini ditujukan untuk <strong>guru dan admin sekolah</strong> yang mencatat pertumbuhan serta imunisasi siswa. Aplikasi ini tidak ditujukan untuk dipakai oleh anak-anak. Data siswa dimasukkan oleh pihak sekolah.</p>
+    <p>Untuk data siswa, <strong>sekolah adalah pihak yang menentukan tujuan pengumpulan data</strong> dan bertanggung jawab memperoleh persetujuan dari orang tua atau wali siswa sesuai ketentuan yang berlaku, termasuk Undang-Undang No. 27 Tahun 2022 tentang Pelindungan Data Pribadi. Kami memproses data tersebut atas nama sekolah untuk menjalankan layanan.</p>
+
+    <h2>2. Data yang dikumpulkan</h2>
+
+    <h3>a. Data akun pengguna (guru dan admin sekolah)</h3>
+    <ul>
+      <li>Nama lengkap dan alamat email.</li>
+      <li>Kata sandi. Kata sandi disimpan dalam bentuk hash (bcrypt), tidak dalam bentuk aslinya.</li>
+      <li>Sekolah yang diikuti dan peran di sekolah tersebut (guru atau admin sekolah).</li>
+    </ul>
+
+    <h3>b. Data siswa yang dimasukkan sekolah</h3>
+    <ul>
+      <li>Identitas: nama lengkap, nomor induk siswa, tanggal lahir, jenis kelamin, kelas, alamat, catatan, serta nama dan nomor telepon orang tua atau wali.</li>
+      <li>Hasil pengukuran: tinggi badan, berat badan, dan tanggal pengukuran. Indeks massa tubuh dan status gizi dihitung dari data ini.</li>
+      <li>Catatan imunisasi: jenis imunisasi, dosis, petugas, dan tanggal.</li>
+    </ul>
+
+    <h3>c. Data wajah siswa</h3>
+    <ul>
+      <li>Saat mendaftarkan wajah, foto siswa dikirim ke server kami. Foto tersebut diubah menjadi <strong>representasi numerik wajah</strong> (face embedding), yaitu deretan angka untuk mencocokkan wajah.</li>
+      <li>Yang disimpan hanya representasi numerik tersebut. <strong>Foto aslinya tidak disimpan</strong> di server.</li>
+      <li>Saat pengukuran, foto dari kamera dipakai untuk mencari siswa yang cocok di sekolah yang sama. Foto ini juga tidak disimpan di server.</li>
+      <li>Fitur pengenalan wajah bersifat opsional. Sekolah tetap bisa mencari siswa secara manual.</li>
+    </ul>
+
+    <h3>d. Data alat ukur</h3>
+    <ul>
+      <li>Nama dan ID Bluetooth alat ukur yang disambungkan, serta sekolah pemiliknya.</li>
+      <li>Hasil pengecekan akurasi dan kalibrasi alat oleh tim teknis, beserta waktu dan nama akun yang melakukannya.</li>
+    </ul>
+
+    <h3>e. Data yang tidak kami kumpulkan</h3>
+    <ul>
+      <li>Kami tidak mengumpulkan lokasi Anda.</li>
+      <li>Kami tidak memakai iklan, SDK analitik, atau pelacak pihak ketiga di aplikasi.</li>
+      <li>Kami tidak membaca kontak, berkas, atau data lain di ponsel Anda.</li>
+    </ul>
+
+    <h2>3. Izin aplikasi</h2>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Izin</th><th>Kegunaan</th></tr></thead>
+        <tbody>
+          <tr><td>Kamera</td><td>Mengambil foto wajah siswa untuk pendaftaran dan pengenalan wajah.</td></tr>
+          <tr><td>Perangkat di sekitar (Bluetooth)</td><td>Mencari dan menyambung ke alat ukur tinggi dan berat badan.</td></tr>
+          <tr><td>Lokasi (khusus Android 11 ke bawah)</td><td>Android versi lama mewajibkan izin lokasi untuk memindai perangkat Bluetooth. Aplikasi tidak membaca atau menyimpan lokasi Anda.</td></tr>
+          <tr><td>Internet</td><td>Mengirim dan mengambil data dari server MySimoka.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>4. Penggunaan data</h2>
+    <p>Data hanya dipakai untuk menjalankan layanan MySimoka:</p>
+    <ul>
+      <li>Masuk ke akun dan membatasi akses sesuai sekolah dan peran.</li>
+      <li>Mencatat dan menampilkan hasil pengukuran serta imunisasi siswa.</li>
+      <li>Mengenali siswa lewat wajah saat pengukuran.</li>
+      <li>Menyusun rekap, grafik, dan status gizi siswa untuk sekolah.</li>
+      <li>Memastikan alat ukur bekerja dengan baik.</li>
+    </ul>
+    <p>Kami <strong>tidak menjual</strong> data dan <strong>tidak membagikannya</strong> kepada pihak ketiga untuk iklan atau pemasaran.</p>
+
+    <h2>5. Siapa yang dapat melihat data</h2>
+    <ul>
+      <li>Guru dan admin sekolah hanya dapat melihat data sekolahnya sendiri, sesuai perannya.</li>
+      <li>Tim pengelola MySimoka dapat mengakses data untuk keperluan dukungan teknis, pemeliharaan, dan keamanan.</li>
+      <li>Kami akan membuka data kepada pihak berwenang hanya jika diwajibkan oleh hukum.</li>
+    </ul>
+
+    <h2>6. Penyimpanan dan keamanan</h2>
+    <ul>
+      <li>Data disimpan di server yang dikelola tim MySimoka. Seluruh komunikasi antara aplikasi dan server memakai koneksi terenkripsi (HTTPS).</li>
+      <li>Akses data dibatasi per sekolah dan per peran, baik di server maupun di aplikasi.</li>
+      <li>Di ponsel, aplikasi menyimpan token login dan pengaturan alat agar Anda tidak perlu masuk berulang kali. Data ini terhapus saat Anda keluar dari akun atau menghapus aplikasi.</li>
+      <li>Kami membuat cadangan basis data secara berkala untuk mencegah kehilangan data.</li>
+    </ul>
+
+    <h2>7. Lama penyimpanan</h2>
+    <ul>
+      <li>Data disimpan selama sekolah masih memakai layanan MySimoka, atau sampai dihapus oleh sekolah.</li>
+      <li>Jika akun atau data dihapus atas permintaan, data tersebut dihapus dari basis data aktif. Salinan di cadangan ikut terhapus saat cadangan lama diganti.</li>
+    </ul>
+
+    <h2>8. Hak Anda</h2>
+    <p>Anda dapat:</p>
+    <ul>
+      <li>Melihat dan memperbarui data akun Anda di menu Profil aplikasi.</li>
+      <li>Meminta penghapusan akun dan data terkait. Kirim permintaan dari email akun Anda ke <a href="mailto:info@mysimoka.id">info@mysimoka.id</a>.</li>
+      <li>Orang tua atau wali siswa yang ingin melihat, memperbaiki, atau menghapus data anaknya dapat menghubungi sekolah. Sekolah dapat mengubah atau menghapus data siswa, atau meneruskan permintaan tersebut kepada kami, termasuk permintaan penghapusan data wajah.</li>
+    </ul>
+
+    <h2>9. Perubahan kebijakan</h2>
+    <p>Kebijakan ini dapat diperbarui jika ada perubahan pada aplikasi atau ketentuan hukum. Tanggal berlaku di bagian atas halaman akan diperbarui, dan perubahan penting akan diberitahukan melalui aplikasi atau kepada sekolah.</p>
+
+    <h2>10. Kontak</h2>
+    <p>Pertanyaan atau permintaan terkait privasi dapat dikirim ke <a href="mailto:info@mysimoka.id">info@mysimoka.id</a>.</p>
+  </main>
+
+  <footer>&copy; 2026 MySimoka &middot; <a href="/">Beranda</a></footer>
+</body>
+</html>

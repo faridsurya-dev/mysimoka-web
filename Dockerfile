@@ -4,7 +4,8 @@ LABEL org.opencontainers.image.source="https://github.com/faridsurya-dev/mysimok
 
 COPY deploy/nginx.conf /etc/nginx/conf.d/default.conf
 
-COPY index.html /usr/share/nginx/html/
+# All top-level pages: index.html, kebijakan-privasi.html, hapus-akun.html
+COPY *.html /usr/share/nginx/html/
 COPY css/ /usr/share/nginx/html/css/
 COPY js/ /usr/share/nginx/html/js/
 COPY assets/ /usr/share/nginx/html/assets/

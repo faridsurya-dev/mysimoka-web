@@ -1051,3 +1051,8 @@ footer {
   color: var(--on-dark-muted);
 }
 .install-steps strong { color: var(--on-dark); font-weight: 600; }
+
+.copyright a {
+  color: inherit;
+  text-decoration: underline;
+}
