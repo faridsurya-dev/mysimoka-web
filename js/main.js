@@ -15,7 +15,7 @@ function showError(message) {
 if (!frame || !canvas) {
   // Section not present on this page.
 } else if (!window.WebGLRenderingContext) {
-  showError('3D preview needs a WebGL-capable browser.');
+  showError('Pratinjau 3D membutuhkan browser yang mendukung WebGL.');
 } else {
   init();
 }
@@ -66,7 +66,7 @@ function init() {
     new URL('../models/smart_growth.stl', import.meta.url).href,
     (geometry) => onModelLoaded(geometry),
     undefined,
-    () => showError('Could not load the 3D model file.')
+    () => showError('Model 3D gagal dimuat.')
   );
 
   function onModelLoaded(geometry) {

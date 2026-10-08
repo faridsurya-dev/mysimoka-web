@@ -6,7 +6,7 @@
 
 ## 1. Ringkasan
 
-Pembuatan halaman landing page satu halaman (single page) untuk menampilkan produk **MySimoka SmartGrowth** — sebuah solusi pengukuran antropometri massal untuk sekolah dasar. Halaman ini bersifat statis (HTML/CSS/JS), menggunakan bahasa Inggris, dan menampilkan model 3D produk.
+Pembuatan halaman landing page satu halaman (single page) untuk menampilkan produk **MySimoka SmartGrowth** — sebuah solusi pengukuran antropometri massal untuk sekolah dasar. Halaman ini bersifat statis (HTML/CSS/JS), menggunakan bahasa Indonesia, dan menampilkan model 3D produk.
 
 ---
 

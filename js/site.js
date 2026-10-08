@@ -19,7 +19,7 @@
     navLinks.classList.toggle('is-open', open);
     navToggle.classList.toggle('is-open', open);
     navToggle.setAttribute('aria-expanded', String(open));
-    navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    navToggle.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
   }
   navToggle.addEventListener('click', function () {
     setMenu(!navLinks.classList.contains('is-open'));
@@ -62,7 +62,7 @@
     var dot = document.createElement('button');
     dot.type = 'button';
     dot.className = 'df-dot';
-    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    dot.setAttribute('aria-label', 'Ke slide ' + (i + 1));
     dot.addEventListener('click', function () { goTo(i); });
     dotsWrap.appendChild(dot);
   });
