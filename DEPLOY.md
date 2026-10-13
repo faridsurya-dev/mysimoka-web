@@ -147,8 +147,10 @@ The next new commit on `main` deploys normally again.
 
 ## Android APK download
 
-The landing page links to `https://mysimoka.id/download/mysimoka.apk` until the
-Google Play listing is live. The file is served from `deploy/downloads/` on the
+The landing page now links to Google Play
+(`https://play.google.com/store/apps/details?id=com.mysimoka_mobile`). The old
+URL `https://mysimoka.id/download/mysimoka.apk` is kept working for links shared
+before the Play listing went live. The file is served from `deploy/downloads/` on the
 server (bind-mounted read-only into the container), so it is neither in git nor
 in the image. Upload or replace it from a PC:
 
@@ -156,5 +158,5 @@ in the image. Upload or replace it from a PC:
 scp mysimoka-update-arm64.apk ubuntu@43.163.117.147:/home/ubuntu/mysimoka-web/deploy/downloads/mysimoka.apk
 ```
 
-No redeploy is needed to replace the file. Update the version/size text in
-`index.html` (`.apk-note`) when shipping a new build.
+No redeploy is needed to replace the file. New releases go to Google Play; this
+APK is legacy and does not need to be updated.

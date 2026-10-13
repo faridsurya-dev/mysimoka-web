@@ -11,7 +11,8 @@ services:
     image: ${IMAGE:-ghcr.io/faridsurya-dev/mysimoka-web}:${IMAGE_TAG:-main}
     container_name: mysimoka-web
     restart: unless-stopped
-    # APK for the landing page's download button. Upload to deploy/downloads/
+    # Legacy APK at /download/mysimoka.apk (the site now links to Google Play;
+    # this keeps old shared links working). Upload to deploy/downloads/
     # on the server (see DEPLOY.md); it is not in git or the image.
     volumes:
       - ./downloads:/usr/share/nginx/html/download:ro
